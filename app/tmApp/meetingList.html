@@ -1,0 +1,73 @@
+
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="input-group">
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Search</button>
+                  </span>
+                  <input type="text" class="form-control" ng-model="searchValue" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <select ng-model="sortorder" class="input-sm">
+                <option selected value="meetingDate">Meeting Date</option>
+                <option value="toastmaster">Toastmaster</option>
+            </select>
+        </div>
+
+    </div>
+
+    <p/>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Meetings <a href="#/newMeeting" class="btn btn-default btn-sm pull-right">Add</a>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped table-hover">
+
+            <thead>
+            <tr>
+                <th>Meeting Date</th>
+                <th>Toastmaster</th>
+                <th>Grammarian</th>
+                <th>Timer</th>
+                <th>Ah counter</th>
+                <th>Speaker 1</th>
+                <th>Speaker 2</th>
+                <th>Speaker 3</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="meeting in matchedEntries = (meetings | filter: searchValue) | orderByPriority | orderBy:sortorder " ng-click="go(meeting)"  >
+                <td><span ng-bind-html='meeting.meetingDate |  matchedsearch : searchValue'></span></td>
+                <td><span ng-bind-html='meeting.toastmaster |  matchedsearch : searchValue'></span></td>
+                <td><span ng-bind-html='meeting.grammarian |  matchedsearch : searchValue'></span></td>
+                <td><span ng-bind-html='meeting.timer |  matchedsearch : searchValue'></span></td>
+                <td><span ng-bind-html='meeting.ahCounter |  matchedsearch : searchValue'></span></td>
+                <td><span ng-bind-html='meeting.speaker1 |  matchedsearch : searchValue'></span></td>
+                <td><span ng-bind-html='meeting.speaker2 |  matchedsearch : searchValue'></span></td>
+                <td><span ng-bind-html='meeting.speaker3 |  matchedsearch : searchValue'></span></td>
+            </tr>
+            <tr ng-hide="hasSearchResult()">
+                <td>Not Found</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+        
+

@@ -1,0 +1,67 @@
+
+    <form class="form-horizontal" role="form">
+         <div class="form-group">
+            <label for="inputMeetingDate" class="col-sm-2 control-label">Meeting Date</label>
+            <div class="col-sm-5">
+                <input  type="text" class="form-control" id="inputMeetingDate" ng-model="meeting.meetingDate" placeholder="Meeting Date" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputToastmaster" class="col-sm-2 control-label">Toastmaster</label>
+            <div class="col-sm-5">
+                <input  type="text" class="form-control"  id="inputToastmaster" ng-model="meeting.toastmaster" placeholder="Toastmaster" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputGrammarian" class="col-sm-2 control-label">grammarian</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputGrammarian" ng-model="meeting.grammarian" placeholder="Grammarian">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputTimer" class="col-sm-2 control-label">Timer</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputTimer" ng-model="meeting.timer" placeholder="Timer">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAhCounter" class="col-sm-2 control-label">Ah Counter</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputAhCounter" ng-model="meeting.ahCounter" placeholder="Ah Counter">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSpeaker1" class="col-sm-2 control-label">Speaker 1</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputSpeaker1" ng-model="meeting.speaker1" placeholder="Speaker 1">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSpeaker2" class="col-sm-2 control-label">Speaker 2</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputSpeaker2" ng-model="meeting.speaker2" placeholder="Speaker 2">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSpeaker3" class="col-sm-2 control-label">Speaker 3</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputSpeaker3" ng-model="meeting.speaker3" placeholder="Speaker 3">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button   class="btn btn-default" ng-click="cancel()">Cancel</button>
+                <button   class="btn btn-default" ng-click="save()">Save</button>
+                <button   class="btn btn-default" ng-click="destroy()">remove</button>
+            </div>
+        </div>
+    </form>
+
+
+

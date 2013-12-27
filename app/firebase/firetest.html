@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src="../lib/jquery/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+<script>
+function makeList(ref) {
+  var fruits = ["apple", "banana", "grape", "orange"];
+  for (var i = 0; i < fruits.length; i++) {
+    ref.push(fruits[i]);
+  }
+}
+
+function getFirstFromList(ref, cb) {
+  ref.startAt().limit(2).once("child_added", function(snapshot) {
+    cb(snapshot.val());
+  });
+}
+
+// Running this should popup an alert with "banana".
+function go() {
+  var testRef = new Firebase("https://example.firebaseIO-demo.com/");
+ // makeList(testRef);
+  getFirstFromList(testRef, function(val) {
+    alert(val);
+  });
+}
+    go();
+</script>
+</body>
+</html>

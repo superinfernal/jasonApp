@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="tmApp">
+<head>
+  <meta charset="utf-8">
+  <title>Toast Master Role Arrangement</title>
+  <link rel="stylesheet" href="../css/app.css"/>
+  <link rel="stylesheet" href="../css/bootstrap.css"/>
+</head>
+<body>
+
+
+<div class="container bs-docs-container ng-cloak" ng-controller = "MainCtrl">
+  <ul class="menu">
+    <li><a href="#/meetingList">Meetings</a></li>
+    <li><a href="#/newMeeting">2013-12-30</a></li>
+  </ul>
+
+  <div ng-view></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+  <script src="../lib/angular/angular.js"></script>
+  <script src="../lib/angular/angular-route.js"></script>
+  <script src="../lib/angular-translate/angular-translate.min.js"></script>
+  <script src="../lib/angular/angular-sanitize.min.js"></script>
+  <script src="../lib/jquery/jquery-2.0.3.min.js"></script>
+  <script src="../lib/bootstrap/bootstrap.min.js"></script>
+
+  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
+
+  <script src="app.js"></script>
+  <script src="services.js"></script>
+  <script src="controllers.js"></script>
+  <script src="filters.js"></script>
+  <script src="directives.js"></script>
+</div>
+  
+</body>
+</html>

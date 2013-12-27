@@ -1,0 +1,27 @@
+{
+    "dataSet" : [
+        {
+            "id" : "1",
+            "meetingDate" : "2013-12-30",
+            "toastmaster": "James Hoffman",
+            "grammarian": "Edward",
+            "timer" : "Tracy",
+            "ahCounter" : "Basil" ,
+            "speaker1" : "David",
+            "speaker2" : "Joseph",
+            "speaker3" : "shelley"
+        },
+        {
+            "id" : "2",
+            "meetingDate" : "2014-1-6",
+            "toastmaster": "Edward",
+            "grammarian": "shelley",
+            "timer" : "David",
+            "ahCounter" : "Joseph" ,
+            "speaker1" : "Peter",
+            "speaker2" : "Tracy",
+            "speaker3" : "Basil"
+        }
+    ]
+}
+

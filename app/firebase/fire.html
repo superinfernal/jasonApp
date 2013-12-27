@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src="../lib/jquery/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+<div id='messagesDiv'></div>
+<input type='text' id='nameInput' placeholder='Name'>
+<input type='text' id='messageInput' placeholder='Message'>
+<script>
+    var myDataRef = new Firebase('https://ki7la9tqdnj.firebaseio-demo.com/');
+    $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+            var name = $('#nameInput').val();
+            var text = $('#messageInput').val();
+            myDataRef.push({name: name, text: text});
+            $('#messageInput').val('');
+        }
+    });
+    myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+    });
+    function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    };
+    // since I can connect from multiple devices or browser tabs, we store each connection instance separately
+    // any time that connectionsRef's value is null (i.e. has no children) I am offline
+    var myConnectionsRef = new Firebase('https://SampleChat.firebaseIO-demo.com/users/joe/connections');
+
+    // stores the timestamp of my last disconnect (the last time I was seen online)
+    var lastOnlineRef = new Firebase('https://SampleChat.firebaseIO-demo.com/users/joe/lastOnline');
+
+    var connectedRef = new Firebase('https://SampleChat.firebaseIO-demo.com/.info/connected');
+    connectedRef.on('value', function(snap) {
+        if (snap.val() === true) {
+            // We're connected (or reconnected)! Do anything here that should happen only if online (or on reconnect)
+
+            // add this device to my connections list
+            // this value could contain info about the device or a timestamp too
+            var con = myConnectionsRef.push(true);
+
+            // when I disconnect, remove this device
+            con.onDisconnect().remove();
+
+            // when I disconnect, update the last time I was seen online
+            lastOnlineRef.onDisconnect().set(Firebase.ServerValue.TIMESTAMP);
+        }
+    });
+</script>
+</body>
+</html>
